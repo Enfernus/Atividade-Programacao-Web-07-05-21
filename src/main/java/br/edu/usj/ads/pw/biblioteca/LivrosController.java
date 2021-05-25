@@ -1,5 +1,8 @@
 package br.edu.usj.ads.pw.biblioteca;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +20,22 @@ public class LivrosController {
     @Autowired
     LivrosRepository livrosRepository; 
     
+    @GetMapping(value="/")
+    public ModelAndView getIndex() {
+
+        List <Livros> lista = new ArrayList<>();
+
+        lista = livrosRepository.findAll();
+       
+        ModelAndView modelAndView = new ModelAndView ("index");
+        
+        modelAndView.addObject("lista", lista);       
+        
+        return modelAndView;
+    }
+    
+
+
     @GetMapping(value="/cadastro")
     public ModelAndView getCadastro() {
         ModelAndView modelAndView = new ModelAndView ("cadastro");
