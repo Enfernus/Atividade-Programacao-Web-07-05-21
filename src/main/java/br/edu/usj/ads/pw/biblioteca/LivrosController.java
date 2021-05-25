@@ -37,7 +37,11 @@ public class LivrosController {
 
         livrosRepository.save(livros);
  
-         return null;
+        ModelAndView modelAndView = new ModelAndView ("detalhes");
+
+        modelAndView.addObject("livros", livros);
+
+         return modelAndView;
     }
     
     

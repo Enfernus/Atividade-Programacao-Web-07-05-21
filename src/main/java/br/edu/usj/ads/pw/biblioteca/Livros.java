@@ -23,7 +23,6 @@ public class Livros {
     String autor; 
     String assunto;
     String resumo;
-    public void setAutor(String autor2) {
-    }
+
     
 }
