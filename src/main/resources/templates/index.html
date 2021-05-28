@@ -11,9 +11,8 @@
     <h1> Biblioteca </h1>
     
     <ul>
-        <li> Titulo  -  Autor  -  Assunto  -  Resumo  </li>
-        <li> Titulo  -  Autor  -  Assunto  -  Resumo  </li>
-        <li> Titulo  -  Autor  -  Assunto  -  Resumo  </li>
+        <li th:each="livros : ${lista}" >  <a th:href="@{/detalhes/{id} (id=${livros.id})}" th:text= "${livros.titulo}">TITULO</a> /li>
+    
     </ul>
 
     <a href="/cadastro">Novo Livro</a>

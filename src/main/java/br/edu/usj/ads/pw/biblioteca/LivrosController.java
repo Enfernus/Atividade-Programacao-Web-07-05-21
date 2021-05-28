@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 
@@ -33,7 +34,20 @@ public class LivrosController {
         
         return modelAndView;
     }
-    
+
+    @GetMapping(value="/detalhes/{id}")
+    public ModelAndView getDetalhes(@PathVariable Long id) {
+        ModelAndView modelAndView = new ModelAndView ("detalhes");
+        Livros livros = new Livros ();
+        livros = livrosRepository.findById(id).get();
+
+        ModelAndView modelAndView = new ModelAndView ("detalhes");
+
+        modelAndView.addObject("livros", livros);
+
+         return modelAndView;
+
+    }
 
 
     @GetMapping(value="/cadastro")
