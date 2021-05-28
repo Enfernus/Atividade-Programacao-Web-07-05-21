@@ -5,15 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <style>
+
+        body{
+     
+         background:#b4b6b6;
+         
+     
+         }
+     
+         .inicio {
+             
+             align-items: center;
+         }
+     
+     
+     </style>
+
 </head>
 <body>
     
-    <h1> Biblioteca </h1>
+    <h1 class= "titulo"> Biblioteca </h1>
     
     <ul>
-        <li th:each="livros : ${lista}" >  <a th:href="@{/detalhes/{id} (id=${livros.id})}" th:text= "${livros.titulo}">TITULO</a> /li>
-    
+        <li th:each="livros : ${lista}" > 
+             <a th:href="@{/detalhes/{id} (id=${livros.id})}" th:text= "${livros.titulo}"></a> 
+             <br>
+             <a th:href="@{/editar/{id} (id=${livros.id})}" > Editar</a> 
+             <br>
+             <a th:href="@{/deletar/{id} (id=${livros.id})}" >Deletar</a>  
+        </li>
     </ul>
+
+    <br>
 
     <a href="/cadastro">Novo Livro</a>
 
